@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		The code sample shown will not display the values 0, 1, 2, 3, and 4 as might be expected; rather, it will display 5, 5, 5, 5, and 5.
+	</p>
+	<code>
+		function withoutClosure() {<br>
+			for (var i = 0; i < 5; i++) {<br>
+				setTimeout(function() { console.log(i); }, i * 1000 );<br>
+			}<br>
+		}<br>
+	</code>
+	<p>
+		Closures can be used to prevent this problem by creating a unique scope for each iteration, storing each unique value of the variable within its scope, as follows:
+	</p>
+	<code>
+		function withClosure() {<br>
+			(function (x) {<br>
+				for (var i = 0; i < 5; i++) {<br>
+					setTimeout(function() { console.log(i); }, i * 1000 );<br>
+				}<br>
+			})(i)<br>
+		}<br>
+	</code>
+</body>
+<script type="text/javascript">
+	// The code sample shown will not display the values 0, 1, 2, 3, and 4 as might be expected; rather, it will display 5, 5, 5, 5, and 5.
+	function withoutClosure() {
+		for (var i = 0; i < 5; i++) {
+			setTimeout(function() { console.log(i); }, i * 1000 );
+		}
+	}
+	withoutClosure();
+
+	// Closures can be used to prevent this problem by creating a unique scope for each iteration, storing each unique value of the variable within its scope, as follows:
+
+	function withClosure() {
+		(function (x) {
+			for (var i = 0; i < 5; i++) {
+				setTimeout(function() { console.log(i); }, i * 1000 );
+			}
+		})(i)
+	}
+	withClosure();
+
+
+</script>
+</html>

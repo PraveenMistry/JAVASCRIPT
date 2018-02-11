@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	var y = 1;
+	if (function f(){}) {
+		y += typeof f;
+	}
+	console.log(y);
+	alert(y);
+
+
+	var k = 1;
+	if (1) {
+		eval(function foo(){});
+		k += typeof foo;
+	}
+	console.log(k); 
+	alert(k);
+
+	var l = 1;
+	if (1) {
+    function foo(){};
+	  l+= typeof foo;
+	}
+  	console.log(l); // output 1function
+  	alert(l);
+
+</script>
+</html>

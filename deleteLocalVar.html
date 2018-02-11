@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	 <ol>
+	 	<li>
+	 		<code>
+	 			var output = (function(x){<br>
+				    delete x;<br>
+				    return x;<br>
+				  })(4);<br>
+				  <br>
+				  console.log(output);<br>
+	 		</code>
+	 		<br><br>
+	 		The output would be 0. The delete operator is used to delete properties from an object.
+	 			Here x is not an object but a local variable. delete operators don't affect local variables.<br><br>
+		</li>
+	 	<li>
+	 		<code>
+	 			var a = 1;<br>
+				var b = (function(){<br>
+				    delete a;<br>
+				    return a;<br>
+				  })();<br>
+				  <br>
+				  console.log(b);<br>
+	 		</code><br><br>
+	 		The output would be 1. The delete operator is used to delete the property of an object. Here x is not an object, but rather it's the global variable of type number.<br><br>
+	 	</li>
+	 	<li>
+	 		<code>
+	 			var x = { foo : 1};<br>
+				var y = (function(){<br>
+				    delete x.foo;<br>
+				    return x.foo;<br>
+				})();<br>
+				  <br>
+				console.log(y);<br>
+	 		</code><br><br>
+	 		The output would be undefined. The delete operator is used to delete the property of an object. Here, x is an object which has the property foo, and as it is a self-invoking function, we will delete the foo property from object x. After doing so, when we try to reference a deleted property foo, the result isundefined.<br><br>
+	 	</li>
+	 	<li>
+	 		<code>
+	 			var Employee = {<br>
+				  company: 'xyz'<br>
+				}<br>
+				
+				var emp1 = Object.create(Employee);<br>
+				delete emp1.company<br>
+				console.log(emp1.company);<br>
+	 		</code><br><br>
+	 		The output would be xyz. Here, emp1 object has company as its prototype property. The delete operator doesn't delete prototype property.
+	 		<br>
+			emp1 object doesn't have company as its own property. You can test it console.log(emp1.hasOwnProperty('company')); //output : false. However, we can delete the company property directly from theEmployee object using delete Employee.company. Or, we can also delete the emp1 object using the __proto__ property delete emp1.__proto__.company.
+			<br><br>
+
+	 	</li>
+	 </ol>
+</body>
+<script type="text/javascript">
+	// case 1
+	var output = (function(x){
+	    delete x;
+	    return x;
+	  })(4);
+	  
+	  console.log(output);
+
+	// case 2
+	var a = 1;
+	var b = (function(){
+	    delete a;
+	    return a;
+	  })();
+	  
+	  console.log(b);
+
+
+	// case 3
+	var x = { foo : 1};
+	var y = (function(){
+	    delete x.foo;
+	    return x.foo;
+	})();
+	  
+	console.log(y);
+
+	// case 4
+	var Employee = {
+	  company: 'xyz'
+	}
+	var emp1 = Object.create(Employee);
+	delete emp1.company
+	console.log(emp1.company);
+
+
+</script>
+</html>

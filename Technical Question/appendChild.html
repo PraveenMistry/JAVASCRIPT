@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		<code>
+			for (var i = 0; i < 5; i++) {<br>
+			  var btn = document.createElement('button');<br>
+			  btn.appendChild(document.createTextNode('Button ' + i));<br>
+			  btn.addEventListener('click', function(){ console.log(i); });<br>
+			  document.body.appendChild(btn);<br>
+			}<br>
+		</code>
+	</p>
+</body>
+<script type="text/javascript">
+		function appendChild() {
+			for (var i = 0; i < 5; i++) {
+			  var btn = document.createElement('button');
+			  btn.appendChild(document.createTextNode('Button ' + i));
+			  btn.addEventListener('click', function(){ console.log(i); });
+			  document.body.appendChild(btn);
+			}
+		}
+		appendChild();
+
+		function appendChildWithLet() {
+			for (let i = 0; i < 5; i++) {
+			  var btn = document.createElement('button');
+			  btn.appendChild(document.createTextNode('Button Let ' + i));
+			  btn.addEventListener('click', function(){ console.log(i); });
+			  document.body.appendChild(btn);
+			}
+		}
+		appendChildWithLet();
+
+		// Alternatively
+		function addEventListener() {
+			
+			for (var i = 0; i < 5; i++) {
+			  var btn = document.createElement('button');
+			  btn.appendChild(document.createTextNode('Button ' + i));
+			  (function (i) {
+			    btn.addEventListener('click', function() { console.log(i); });
+			  })(i);
+			  document.body.appendChild(btn);
+			}
+		}	
+		addEventListener();
+
+		// foreach
+		function forEachAppendChild(argument) {
+			['a', 'b', 'c', 'd', 'e'].forEach(function (value, i) {
+			  var btn = document.createElement('button');
+			  btn.appendChild(document.createTextNode('Button ' + i));
+			  btn.addEventListener('click', function() { console.log(i); });
+			  document.body.appendChild(btn);
+			});
+		}
+		forEachAppendChild();
+</script>
+</html>

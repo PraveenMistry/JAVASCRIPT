@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		innerFunction is closure that is defined inside outerFunction and has access to all variables declared and defined in the outerFunction scope.<br>
+		In addition, the function defined inside another function as a closure will have access to variables declared in the global namespace.
+	</p>
+</body>
+<script type="text/javascript">
+
+	// case 1: Lexical scoping
+	function init() {
+	  var name = 'Lexical'; // name is a local variable created by init
+	  function displayName() { // displayName() is the inner function, a closure
+	    alert(name); // use variable declared in the parent function    
+	  }
+	  displayName();    
+	}
+	init();
+
+
+	// case 2: Closure
+	function makeFunc() {
+	  var name = 'Closure';
+	  function displayName() {
+	    alert(name);
+	  }
+	  return displayName;
+	}
+
+	var myFunc = makeFunc();
+	myFunc();
+
+	// case 3: 
+	function makeAdder(x) {
+	  return function(y) {
+	    return x + y;
+	  };
+	}
+
+	var add5 = makeAdder(5);
+	var add10 = makeAdder(10);
+	console.dir(add5)
+	console.log("",add5);  
+
+	console.log(add5(2));  // 7
+	
+	console.log(add10(2)); // 12
+
+	// Lexical scoping 
+		// globle variable available for all function is lexical scoping
+</script>
+</html>

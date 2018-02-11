@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		<code>
+			var myObject = {<br>
+			    foo: "bar",<br>
+			    func: function() {<br>
+			        var self = this;<br>
+			        console.log("outer func:  this.foo = " + this.foo);<br>
+			        console.log("outer func:  self.foo = " + self.foo);<br>
+			        (function() {<br>
+			            console.log("inner func:  this.foo = " + this.foo);<br>
+			            console.log("inner func:  self.foo = " + self.foo);<br>
+			        }());<br>
+			    }<br>
+			};<br>
+			myObject.func();<br>
+		</code>
+	</p>
+</body>
+<script type="text/javascript">
+	var myObject = {
+    foo: "bar",
+    func: function() {
+        var self = this;
+        console.log("outer func:  this.foo = " + this.foo);
+        console.log("outer func:  self.foo = " + self.foo);
+        (function() {
+            console.log("inner func:  this.foo = " + this.foo);
+            console.log("inner func:  self.foo = " + self.foo);
+        }());
+    }
+};
+myObject.func();
+</script>
+</html>

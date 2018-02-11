@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<code>
+		// case 1<br>
+		var x = " outside ";<br>
+		var f1 = function () {<br>
+		var x = " inside f1 ";<br>
+		};<br>
+		f1 () ;<br>
+		console . log ( x ) ;<br>
+		// → outside<br>
+
+		// case 2<br>
+		var f2 = function () {<br>
+		x = " inside f2 ";<br>
+		};<br>
+		f2 () ;<br>
+		console . log ( x ) ;<br>
+		// → i<br>nside f2
+	</code>
+</body>
+<script type="text/javascript">
+	// case 1
+	var x = " outside ";
+	var f1 = function () {
+	var x = " inside f1 ";
+	};
+	f1 () ;
+	console . log ( x ) ;
+	// → outside
+
+	// case 2
+	var f2 = function () {
+	x = " inside f2 ";
+	};
+	f2 () ;
+	console . log ( x ) ;
+	// → inside f2
+
+</script>
+</html>

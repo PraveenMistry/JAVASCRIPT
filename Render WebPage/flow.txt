@@ -1,0 +1,18 @@
+Here's a sequence of operation:
+
+Browser parses <html> and <head> tags.
+Browser encounters first <link> tag, sees a reference to an external stylesheet and initiates a server request to download that external stylesheet. The browser does not wait for that request to finish.
+Browser encounters second <link> tag, sees a reference to an external stylesheet and initiates a server request to download that second external stylesheet. The browser does not wait for that request to finish.
+Browser encounters first <script> tag specifying an external script file. Browser initiates request from server for the external script file.
+Browser may "look-ahead" and see next <script> tag and also initiate the request for that external script file.
+Since external <script> resources are blocking resources, the official page parsing and execution cannot continue until the first script file has been fetched and executed. The browser may look ahead to see if the download of any other resources should be initiated.
+The first script file finishes download. The browser executes that script.
+The second script file finishes download. The browser executes that script.
+At any point in this process if either of the stylesheets finish downloading, they are processed as soon as available.
+After second block script file is processed, page parsing can continue.
+</head> and <body> tags are parsed.
+<button>button1</button> is parsed and added to the body DOM. The browser may do partial rendering at this point.
+Both <img> tags are parsed and fetches for their external images are initiated.
+The second <button> tag is processed and may be rendered.
+The browser sees the end tags that signify the end of the page.
+At some point in the future, the images finish downloading and rendering is finished. Depending upon the images and the browser, the images may have been doing progressive rendering as they were downloading.

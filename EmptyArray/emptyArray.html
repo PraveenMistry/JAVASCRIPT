@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// case 1
+	var array = ['a','b','c','d','e','f']; // Created array 
+	console.log("before",array);
+	array = [];
+	console.log("after",array);
+
+	// case 2
+	var arrayList = ['a','b','c','d','e','f']; // Created array 
+	var anotherArrayList = arrayList;  // Referenced arrayList by another variable 
+	console.log("before",arrayList)
+	console.log("before",anotherArrayList)
+	arrayList.length = 0; // Empty the array by setting length to 0
+	console.log("after",arrayList)
+	console.log("after",anotherArrayList); // Output []
+
+	// case 3
+	var arrayLenghtList = ['a','b','c','d','e','f']; // Created array 
+	console.log("before",arrayLenghtList);
+	arrayLenghtList.length = 0;
+	console.log("after",arrayLenghtList);
+
+
+	// case 4
+	// array.splice(index, howmany, item1, ....., itemX)
+	var spliceArrayList = ['a','b','c','d','e','f']; // Created array 
+	var spliceAnotherArrayList = spliceArrayList;  // Referenced arrayList by another variable 
+	console.log("before",spliceArrayList)
+	console.log("before",spliceAnotherArrayList);
+	spliceArrayList.splice(0, spliceArrayList.length); // Empty the array by setting length to 0
+	// console.log(spliceAnotherArrayList); // Output []
+	console.log("after",spliceArrayList)
+	console.log("after",spliceAnotherArrayList);
+
+	// case 5
+	var popArrayList = ['a','b','c','d','e','f']; // Created array 
+	console.log("before",popArrayList)
+	while(popArrayList.length){
+	  popArrayList.pop();
+	}
+	console.log("after",popArrayList)
+
+	// case 6
+	var shiftArrayList = ['a','b','c','d','e','f']; // Created array 
+	console.log("before",shiftArrayList)
+	while(shiftArrayList.length){
+	  shiftArrayList.shift();
+	}
+	console.log("after",shiftArrayList)
+</script>
+</html>

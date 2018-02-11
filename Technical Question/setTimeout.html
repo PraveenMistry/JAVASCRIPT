@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<code>
+		(function() {<br>
+		    console.log(1); <br>
+		    setTimeout(function(){console.log(2)}, 1000); <br>
+		    setTimeout(function(){console.log(3)}, 0); <br>
+		    console.log(4);<br>
+		})();<br>
+	</code>
+	<p>
+		The browser has an event loop which checks the event queue and processes pending events. For example, if an event happens in the background (e.g., a script onload event) while the browser is busy (e.g., processing an onclick), the event gets appended to the queue. When the onclick handler is complete, the queue is checked and the event is then handled (e.g., the onload script is executed).
+	</p>
+</body>
+<script type="text/javascript">
+	(function() {
+	    console.log(1); 
+	    setTimeout(function(){console.log(2)}, 1000); 
+	    setTimeout(function(){console.log(3)}, 0); 
+	    console.log(4);
+	})();
+</script>
+</html>

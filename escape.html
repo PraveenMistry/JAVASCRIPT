@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		Define unescape() and escape() functions?
+
+The escape () function is responsible for coding a string so as to make the transfer of the information from one computer to the other, across a network.
+
+For Example:
+
+
+<script>
+document.write(escape(“Hello? How are you!”));
+</script>
+<script>
+ 
+document.write(escape(“Hello? How are you!”));
+ 
+</script>
+Output: Hello%3F%20How%20are%20you%21
+
+The unescape() function is very important as it decodes the coded string.
+
+It works in the following way. For example:
+
+
+<script>
+document.write(unescape(“Hello%3F%20How%20are%20you%21”));
+</script>
+<script>
+ 
+document.write(unescape(“Hello%3F%20How%20are%20you%21”));
+ 
+</script>
+Output: Hello? How are you!
+	</p>
+</body>
+<script type="text/javascript">
+	document.write(escape(“Hello? How are you!”)); //encoding
+	document.write(unescape(“Hello%3F%20How%20are%20you%21”)); // decoding
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="parent" onclick="parentClick()">
+		<p>THis is p</p>
+		<a href="#" class="child" onclick="childClick()">child</a>
+	</div>
+</body>
+<script type="text/javascript">
+	var IsChildWindow=false;
+
+	function parentClick(e) {
+	    alert('parent')
+	}
+	function childClick(e) {
+		if (!e) e = window.event;
+		if (e.stopPropagation) e.stopPropagation();
+		alert('child');
+	}
+</script>
+</html>

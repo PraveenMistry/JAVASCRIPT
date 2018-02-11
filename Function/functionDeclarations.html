@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>What is the difference between the function declarations below?</p>
+	<h4>Case 1</h4>
+	<code>
+		var foo = function(){<br> 
+		    // Some code<br>
+		};<br>
+	</code>
+	<h4>Case 2</h4>
+	<code>
+		function bar(){ <br>
+		    // Some code<br>
+		};<br>
+	</code>
+	<p>The main difference is the function foo is defined at run-time whereas function bar is defined at parse time. To understand this in better way, let's take a look at the code below:</p>
+	<h4>Case 1</h4>
+	<code>
+		Run-Time function declaration <br>
+		
+			foo(); // Calling foo function here will give an Error<br>
+			  var foo = function(){ <br>
+			    console.log("Hi I am inside Foo");<br>
+			 }; <br>
+	
+	</code>
+	<h4>Case 2</h4>	
+	<code>
+		
+			Parse-Time function declaration <br>
+			bar(); // Calling foo function will not give an Error<br>
+			 function bar(){ <br>
+			  console.log("Hi I am inside Foo");<br>
+			 }; <br>
+		
+	</code>
+</body>
+<script type="text/javascript">
+
+
+	//Parse-Time function declaration 
+	bar(); // Calling foo function will not give an Error
+	 function bar(){ 
+	  console.log("Hi I am inside Foo");
+	 }; 
+
+
+
+	foo(); // Calling foo function here will give an Error
+	  var foo = function(){ 
+	    console.log("Hi I am inside Foo");
+	 }; 
+
+</script>
+</html>

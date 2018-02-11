@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<code>
+		function isPalindrome(str) {<br>
+		  str = str.replace(/\W/g, '').toLowerCase();<br>
+		  return (str == str.split('').reverse().join(''));<br>
+		}<br>
+	</code>
+</body>
+<script type="text/javascript">
+	function isPalindrome(str) {
+	  str = str.replace(/\W/g, '').toLowerCase();
+	  return (str == str.split('').reverse().join(''));
+	}
+
+	console.log(isPalindrome("level"));                  
+	console.log(isPalindrome("levels"));                 
+	console.log(isPalindrome("A car, a man, a maraca")); 
+</script>
+</html>

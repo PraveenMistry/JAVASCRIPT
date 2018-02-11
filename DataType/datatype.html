@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	// var a = null;
+	// var a = undefined;
+	// var a = " ";
+	// var a = 22;
+	// var a = '';
+	// var a = {'name':'praveen'};
+	// var a = ['praveen'];
+	// var a = true;
+
+	function getType(a) {
+		alert(a);
+		alert(typeof a); // get type
+
+		if(Array.isArray(a)){ // alert(Array.isArray(a)); // check array - if array then return true
+			alert('array')
+		}
+		
+		if(a === null && typeof a === "object"){
+			alert('null-object')
+		}
+	}
+	getType(a);
+</script>
+</html>

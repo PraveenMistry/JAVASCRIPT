@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// case 1
+	function sum1(x) {
+	  if (arguments.length == 2) {
+	    return arguments[0] + arguments[1];
+	  } else {
+	    return function(y) { return x + y; };
+	  }
+	}
+
+	// case 2
+	function sum2(x, y) {
+	  if (y !== undefined) {
+	    return x + y;
+	  } else {
+	    return function(y) { return x + y; };
+	  }
+	}
+
+	console.log("sum1(2)(2)",sum1(2)(2));
+	console.log("sum1-2",sum1(2,2));
+
+	console.log("sum2(2)(2)",sum1(2)(2));
+	console.log("sum2(2,2)",sum1(2,2));
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+		<code>
+			(function(){<br>
+			  var a = b = 3;<br>
+			})();<br>
+<br>
+			console.log("a defined? " + (typeof a !== 'undefined'));<br>
+			console.log("b defined? " + (typeof b !== 'undefined'));<br>
+		</code>
+	</p>
+	<p>
+		As a result (if you are not using strict mode), the output of the code snippet would be:<br>
+
+		a defined? false<br>
+		b defined? true<br>
+		But how can b be defined outside of the scope of the enclosing function? Well, since the statement var a = b = 3; is shorthand for the statements b = 3; and var a = b;, b ends up being a global variable (since it is not preceded by the var keyword) and is therefore still in scope even outside of the enclosing function.<br>
+
+		Note that, in strict mode (i.e., with use strict), the statement var a = b = 3; will generate a runtime error of ReferenceError: b is not defined, thereby avoiding any headfakes/bugs that might othewise result. (Yet another prime example of why you should use use strict as a matter of course in your code!)<br>
+	</p>
+</body>
+<script type="text/javascript">
+	(function(){
+	  var a = b = 3;
+	})();
+
+	console.log("a defined? " + (typeof a !== 'undefined'));
+	console.log("b defined? " + (typeof b !== 'undefined'));
+</script>
+</html>
